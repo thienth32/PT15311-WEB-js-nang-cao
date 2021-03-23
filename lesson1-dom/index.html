@@ -1,0 +1,23 @@
+<p>hello world!</p>
+<ul>
+    <li>li 1</li>
+    <li>li 2
+        <ul>
+            <li>li 2.1</li>
+            <li>li 2.2</li>
+            <li>li 2.3</li>
+        </ul>
+    </li>
+    <li>li 3</li>
+    <li>li 4</li>
+</ul>
+<input type="text" name="username">
+<script>
+    // xác định 1 thẻ dựa trên selector
+
+    var pTag = document.querySelector('p');
+    // pTag => 1 thẻ Node trong website
+    setTimeout(function(){
+        document.querySelector('[name="username"]').value = "hello world!";
+    }, 3000);
+</script>

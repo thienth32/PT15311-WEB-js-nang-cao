@@ -1,0 +1,22 @@
+<input type="text">
+<button>Click me</button>
+<h2></h2>
+<script>
+    // 1 xác định thẻ button
+    var btn = document.querySelector('button');
+    // 2 gán 1 sự kiện cho thẻ button
+    btn.addEventListener('click', function(){
+        // document.querySelector('h2').innerText = document.querySelector('input').value
+        // 3 xác định thẻ input
+        var input = document.querySelector('input');
+        // 4 lấy giá trị của thẻ input
+        var inputValue = input.value;
+        // 5 xác định thẻ h2
+        var h2Tag = document.querySelector('h2');
+        // 6 gán giá trị hiện có của thẻ input cho thẻ h2
+        h2Tag.innerText = inputValue;
+    })
+    // tạo 1 thẻ div có kích thước 60x60, có border 1px solid màu đen
+    // viết tên màu (tiếng anh) trong thẻ input
+    // click chuột thì đổ màu background cho thẻ div
+</script>

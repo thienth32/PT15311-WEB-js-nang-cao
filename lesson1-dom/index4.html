@@ -1,0 +1,21 @@
+<form action="">
+    <div>
+        <label for="">Name</label>
+        <input type="text" name="name">
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="text" name="email">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+<script>
+    document.querySelector('form').addEventListener('submit', function(e){
+        e.preventDefault();
+        var data = new FormData(e.target)
+        console.log(data.get('name'), data.get('email'));
+    });
+
+</script>

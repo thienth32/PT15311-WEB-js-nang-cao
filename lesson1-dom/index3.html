@@ -1,0 +1,13 @@
+<img src="" alt="">
+<input type="text">
+<p school-id="5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quasi eveniet voluptate magnam minus facere iusto commodi non, autem velit magni excepturi quisquam ad suscipit nulla eaque fugiat aliquid! Atque!</p>
+
+
+<script>
+    // viết đường dẫn ảnh vào thẻ input
+    // xảy ra hành động click chuột ra ngoài khỏi thẻ input
+    // thì giá trị của thẻ input => thuộc tính src của thẻ img
+    document.querySelector('input').addEventListener('blur', function(e){
+        document.querySelector('img').src = e.target.value
+    })
+</script>

@@ -1,0 +1,18 @@
+<ul>
+    
+</ul>
+<div></div>
+<script>
+
+    var listColor = ["green", "red", "purple", "yellow"];
+    document.querySelector('ul').innerHTML = listColor.map(item => `<li>${item}</li>`).join("");
+
+    // click vào thẻ li nào thì thẻ đó bị xóa khỏi trang html
+    // var listLi = document.querySelectorAll('li');
+    
+    // for (var i = 0; i < listLi.length; i++) {
+    //     listLi[i].addEventListener('click', function(e){
+    //         e.target.remove();
+    //     });
+    // }
+</script>
