@@ -5,29 +5,32 @@
         <th>Name</th>
         <th>Image</th>
         <th>Class</th>
+        <th>
+            <a href="add-student.html">Add new</a>
+        </th>
     </thead>
     <tbody></tbody>
 </table>
 
 <script>
     var apiUrl = "http://localhost:3000/students?_expand=class";
-    fetch(apiUrl, {
-        method: "GET",
-        dataType: "json"
-    })
+    fetch(apiUrl)
     .then(response => response.json())
     .then(students => {
-        console.log(students);
         var content = ``;
         students.forEach(element => {
             content += `<tr>
-                    <td>${element.id}</td>
-                    <td>${element.name}</td>
-                    <td>
-                        <img src="${element.image}" width="70"/>    
-                    </td>
-                    <td>${element.class.name}</td>
-                </tr>`;
+                            <td>${element.id}</td>
+                            <td>${element.name}</td>
+                            <td>
+                                <img src="${element.image}" width="70"/>    
+                            </td>
+                            <td>${element.class.name}</td>
+                            <td>
+                                <a href="edit-student.html?id=${element.id}">Edit</a>
+                                <a href="remove-student.html?id=${element.id}">Remove</a>
+                            </td>
+                        </tr>`;
         });
         document.querySelector('tbody').innerHTML = content;
     })

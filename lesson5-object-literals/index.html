@@ -1,0 +1,15 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script>
+    var student = {
+        name: "Lê Trọng Đạt",
+        ngay_nhap_hoc: "15/01/2021",
+        thoiGianRaTruong: function(){
+            var momentNgayNhapHoc = moment(this.ngay_nhap_hoc, "DD/MM/YYYY");
+            var ngayRaTruong = momentNgayNhapHoc.add(28, 'months');
+            var currentDate = moment();
+            var thoiGianConLai = ngayRaTruong.diff(currentDate, 'months');
+            console.log(thoiGianConLai + " Tháng");
+        }
+    }
+    student.thoiGianRaTruong();
+</script>

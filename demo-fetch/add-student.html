@@ -1,0 +1,28 @@
+<form action="">
+    <div>
+        <label for="">Name</label>
+        <input type="text" name="name">
+    </div>
+    <div>
+        <label for="">Image</label>
+        <input type="text" name="image">
+    </div>
+    <div>
+        <label for="">Class</label>
+        <select name="classId" id="select-class"></select>
+    </div>
+    <button type="submit">Save</button>
+</form>
+<script>
+    // lấy danh sách class từ api
+    const CLASSES_API = "http://localhost:3000/classes";
+    fetch(CLASSES_API)
+    .then(response => response.json())
+    .then(classes => {
+        let content = ``;
+        classes.forEach(element => {
+            content += `<option value="${element.id}">${element.name}</option>`;
+        });
+        document.querySelector('#select-class').innerHTML = content;
+    })
+</script>
