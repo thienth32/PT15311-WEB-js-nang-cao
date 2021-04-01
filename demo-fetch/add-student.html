@@ -1,4 +1,4 @@
-<form action="">
+<form action="" onsubmit="createStudent(event)">
     <div>
         <label for="">Name</label>
         <input type="text" name="name">
@@ -16,6 +16,7 @@
 <script>
     // lấy danh sách class từ api
     const CLASSES_API = "http://localhost:3000/classes";
+    const STUDENTS_API = "http://localhost:3000/students";
     fetch(CLASSES_API)
     .then(response => response.json())
     .then(classes => {
@@ -25,4 +26,28 @@
         });
         document.querySelector('#select-class').innerHTML = content;
     })
+    function createStudent(event){
+        event.preventDefault();
+        let data = {
+            name: document.querySelector('[name="name"]').value,
+            image: document.querySelector('[name="image"]').value,
+            classId: document.querySelector('[name="classId"]').value
+        };
+        // gửi request lên api (method=post) kèm theo data
+        fetch(STUDENTS_API, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(jsondata => {
+            if(jsondata.id != undefined){
+                window.location.href = 'index.html';
+            }
+        })
+    
+    }
 </script>

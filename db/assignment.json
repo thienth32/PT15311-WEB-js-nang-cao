@@ -4,45 +4,21 @@
       "id": 1,
       "name": "Chúc Anh Quân",
       "image": "https://iap.poly.edu.vn/user/ph/PH09928.jpg",
-      "classId": 1
-    },
-    {
-      "id": 2,
-      "name": "Nguyễn Huy Quyết",
-      "image": "https://iap.poly.edu.vn/user/ph/PH10607.jpg",
-      "classId": 2
-    },
-    {
-      "id": 3,
-      "name": "Nguyễn Văn Tân",
-      "image": "https://iap.poly.edu.vn/user/ph/PH11473.jpg",
-      "classId": 1
-    },
-    {
-      "name": "Đinh Công Thành",
-      "image": "https://iap.poly.edu.vn/user/ph/PH10271.jpg",
-      "id": 4,
-      "classId": 1
-    },
-    {
-      "name": "Đinh Văn Thiện",
-      "image": "https://iap.poly.edu.vn/user/ph/PH11030.jpg",
-      "id": 5,
-      "classId": 1
+      "classId": 3
     }
   ],
   "classes": [
-      {
-          "id": 1,
-          "name": "PT15311-WEB"
-      },
-      {
-          "id": 2,
-          "name": "PT15316-WEB"
-      },
-      {
-          "id": 3,
-          "name": "PT15414-WEB"
-      }
+    {
+      "id": 1,
+      "name": "PT15311-WEB"
+    },
+    {
+      "id": 2,
+      "name": "PT15316-WEB"
+    },
+    {
+      "id": 3,
+      "name": "PT15414-WEB"
+    }
   ]
 }

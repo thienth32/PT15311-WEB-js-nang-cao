@@ -1,0 +1,51 @@
+<form action="" onsubmit="editStudent(event)">
+    <div>
+        <label for="">Name</label>
+        <input type="text" name="name">
+    </div>
+    <div>
+        <label for="">Image</label>
+        <input type="text" name="image">
+    </div>
+    <div>
+        <label for="">Class</label>
+        <select name="classId" id="select-class"></select>
+    </div>
+    <button type="submit">Save</button>
+</form>
+<script>
+    const CLASSES_API = "http://localhost:3000/classes";
+    const STUDENT_API = "http://localhost:3000/students";
+    const params = new URLSearchParams(window.location.search);
+    const studentId = params.get('id');
+
+    let globalClass = [];
+    let studentData = {};
+
+    async function getData(){
+        globalClass = await fetch(CLASSES_API)
+                        .then(response => response.json());
+        studentData = await fetch(`${STUDENT_API}/${studentId}`)
+                        .then(response => response.json())
+    }
+    
+    // lấy dữ liệu tất cả các danh sách lớp 
+    // fill dữ liệu ds lớp vào thẻ select
+    getData()
+    .then(() => {
+        let content = ``;
+        globalClass.forEach(element => {
+            const selected = element.id == studentData.classId ? "selected" : "";
+            
+            content += `<option ${selected} value="${element.id}">${element.name}</option>`
+        });
+        document.querySelector('#select-class').innerHTML = content;
+        
+        document.querySelector(`[name="name"]`).value = studentData.name;
+        document.querySelector(`[name="image"]`).value = studentData.image;
+    });
+
+    function editStudent(event){
+
+    }
+</script>
