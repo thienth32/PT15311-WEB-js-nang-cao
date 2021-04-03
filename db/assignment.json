@@ -1,19 +1,23 @@
 {
   "students": [
     {
-      "id": 1,
-      "name": "Chúc Anh Quân",
+      "name": "Chúc Anh Đài 2",
+      "classId": 1,
       "image": "https://iap.poly.edu.vn/user/ph/PH09928.jpg",
-      "classId": 3
+      "id": 1
     },
     {
       "name": "Nguyễn Văn Đức",
       "image": "https://iap.poly.edu.vn/user/ph/PH11076.jpg",
-      "classId": "2",
+      "classId": 1,
       "id": 2
     }
   ],
   "classes": [
+    {
+      "id": 0,
+      "name": "Lớp chờ"
+    },
     {
       "id": 1,
       "name": "PT15311-WEB"

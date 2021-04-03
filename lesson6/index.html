@@ -1,0 +1,34 @@
+<script>
+
+    function callbackTimeout(value, time, resolve){
+        setTimeout(() => {
+            console.log(value);
+            return resolve();
+        }, time);
+    }
+
+    let promiseObject = new Promise((resolve) => {
+        callbackTimeout(1, 4000, resolve)
+    });
+
+    promiseObject
+    .then( data => {
+        return new Promise((resolve) => {
+            callbackTimeout(2, 3000, resolve)
+        });
+    })
+    .then( data => {
+        return new Promise((resolve) => {
+            callbackTimeout(3, 2000, resolve)
+        });
+    })
+    .then( data => {
+        return new Promise((resolve) => {
+            callbackTimeout(4, 1000, resolve)
+        });
+    })
+    .then(data => {
+        console.log(5);
+    })
+
+</script>

@@ -1,0 +1,25 @@
+<script>
+    
+    let promiseObject = new Promise(resolve => {
+        let url = "http://localhost:3000/classes/1?_embed=students";
+        console.log("thực hiện fetch data");
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log("get đc thông tin lớp");
+            return resolve(data.students);
+        })
+    });
+
+    promiseObject
+    .then(students => {
+        console.log("thông tin sinh viên trong lớp");
+        console.log(students);
+        students.forEach(st => {
+            // cập nhật classId của từng sinh viên
+        });
+    })
+    .then() // xóa lớp
+
+
+</script>
