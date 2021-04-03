@@ -46,6 +46,27 @@
     });
 
     function editStudent(event){
+        event.preventDefault();
+        let img = document.querySelector('[name="image"]').value;
+        studentData = {
+            name: document.querySelector('[name="name"]').value,
+            classId: document.querySelector('[name="classId"]').value
+        };
+        if(img.trim().length != 0){
+            studentData.image = img;
+        }
 
+        fetch(`${STUDENT_API}/${studentId}`, {
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(studentData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
     }
 </script>

@@ -5,6 +5,12 @@
       "name": "Chúc Anh Quân",
       "image": "https://iap.poly.edu.vn/user/ph/PH09928.jpg",
       "classId": 3
+    },
+    {
+      "name": "Nguyễn Văn Đức",
+      "image": "https://iap.poly.edu.vn/user/ph/PH11076.jpg",
+      "classId": "2",
+      "id": 2
     }
   ],
   "classes": [
