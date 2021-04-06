@@ -1,0 +1,28 @@
+<script>
+
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(1); 
+            return resolve();
+        }, 1000)
+    })
+    promise
+    .then(() => new Promise(
+        (resolve, reject) => {
+            setTimeout(() => {
+                console.log(2); 
+                return resolve();
+            }, 4000)
+        }
+    ))
+    .then(() => {
+        setTimeout(() => {
+            console.log(3); 
+        }, 3000)
+    })
+    .then(() => {
+        setTimeout(() => {
+            console.log(4); 
+        }, 2000)
+    })
+</script>

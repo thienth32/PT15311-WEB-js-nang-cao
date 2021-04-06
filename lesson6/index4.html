@@ -1,0 +1,42 @@
+<script>
+
+
+    async function getClassById(id){
+        debugger;
+        
+        let classData = await fetch(`http://localhost:3000/classes/${id}?_embed=students`)
+                                .then(res => res.json());
+        console.log(classData);
+        for(let i = 0; i < classData.students.length; i++){
+            let std = classData.students[i];
+            std.classId = 0;
+            const updatedStudent = await fetch(`http://localhost:3000/students/${std.id}`, {
+                                                method: "PUT",
+                                                headers: {
+                                                    'Accept': 'application/json',
+                                                    'Content-Type': 'application/json'
+                                                },
+                                                body: JSON.stringify(std)
+                                            })
+                                            .then(res => res.json());
+            console.log(updatedStudent);
+        }
+
+        await fetch(`http://localhost:3000/classes/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        })
+
+        return classData;
+    }
+    
+    getClassById(2);
+   
+    
+    
+    
+
+</script>
