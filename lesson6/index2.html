@@ -17,9 +17,34 @@
         console.log(students);
         students.forEach(st => {
             // cập nhật classId của từng sinh viên
+            st.classId = 0;
+            fetch("http://localhost:3000/students/" + st.id, {
+                method: "PUT",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(st)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("cập nhật student: ", data);
+            })
         });
     })
-    .then() // xóa lớp
+    .then(() => {
+        fetch("http://localhost:3000/classes/1", {
+                method: "DELETE",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("xóa class: ", data);
+            })
+    }) // xóa lớp
 
 
 </script>
