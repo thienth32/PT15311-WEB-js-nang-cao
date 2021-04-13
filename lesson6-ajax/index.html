@@ -1,0 +1,15 @@
+<ul></ul>
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    let students = [];
+    axios.get("http://localhost:3000/students")
+    .then(response => {
+        if(response.statusText == "OK"){
+            let content = response.data
+                            .map(item => `<li>${item.name}</li>`).join("");
+            document.querySelector('ul').innerHTML = content;
+        }
+    })
+</script>
