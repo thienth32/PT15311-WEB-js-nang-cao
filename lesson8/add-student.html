@@ -1,0 +1,49 @@
+<form action="">
+    <div>
+        Họ tên: <input type="text" name="name">
+    </div>
+    <div>
+        Lớp: <select name="class" ></select>
+    </div>
+    <div>
+        Ảnh: <input type="text" name="image">
+    </div>
+    <div>
+        <button type="submit">Lưu</button>
+    </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    // lấy danh sách lớp đưa vào thẻ select
+    $.ajax({
+        url: "http://localhost:3000/classes",
+        method: 'GET',
+        reponseType: "json",
+        success: function(classes){
+            let content = classes.map(item => 
+                                        `<option value="${item.id}">${item.name}</option>`
+                                    )
+                                .join('');
+            $('select[name="class"]').append(content);
+        }
+    })
+
+    $('form').submit(function(event){
+        event.preventDefault();
+        let newStudent = {
+            name: $('input[name="name"]').val(),
+            classId: $('select[name="class"]').val(),
+            image: $('input[name="image"]').val(),
+        }
+
+        $.ajax({
+            url: "http://localhost:3000/students",
+            reponseType: "json",
+            data: newStudent,
+            method: "POST",
+            success: function(student){
+                console.log(student);
+            }
+        })
+    })
+</script>

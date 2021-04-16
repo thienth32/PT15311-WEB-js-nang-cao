@@ -11,6 +11,18 @@
       "image": "https://iap.poly.edu.vn/user/ph/PH11076.jpg",
       "classId": 0,
       "id": 2
+    },
+    {
+      "name": "Đinh Công Thành",
+      "classId": "3",
+      "image": "https://iap.poly.edu.vn/user/ph/PH10271.jpg",
+      "id": 3
+    },
+    {
+      "name": "Nguyễn Thị Thảo",
+      "classId": "3",
+      "image": "https://iap.poly.edu.vn/user/ph/PH10856.jpg",
+      "id": 4
     }
   ],
   "classes": [
